@@ -12,6 +12,14 @@ header{position:sticky;top:0;z-index:20;background:var(--lime);color:#141412;dis
 .logo{display:flex;align-items:center;gap:12px;color:#141412;text-decoration:none;font-size:1.3rem;letter-spacing:.02em}
 .logo img{width:56px;height:52px;border-radius:14px;background:#141412;display:block}
 
+.logo img {
+    width: 56px;
+    height: 52px;
+    border-radius: 14px;
+    background: #141412;
+    display: block;
+}
+
 nav{display:flex;gap:clamp(14px,3vw,40px);align-items:center}
 nav a{color:#141412;text-decoration:none;font-size:1rem}
 nav a:hover{text-decoration:underline;text-underline-offset:6px}
