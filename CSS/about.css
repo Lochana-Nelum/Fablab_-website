@@ -1,0 +1,67 @@
+/* FabLab — About Us page (loads after style.css) */
+nav a[aria-current="page"]{text-decoration:underline;text-underline-offset:6px}
+.k{font-size:.8rem;letter-spacing:.16em;text-transform:uppercase;color:var(--mute);margin-bottom:14px;font-weight:500}
+.sec{padding:clamp(52px,8vw,100px) clamp(16px,5vw,72px);max-width:1200px;margin:0 auto}
+.sec h2{font-size:clamp(1.9rem,4.4vw,3.2rem);line-height:1.05;letter-spacing:-.02em;max-width:20ch}
+em{color:inherit}
+
+/* ---------- hero: floating shapes follow the pointer ---------- */
+.ahero{position:relative;overflow:hidden;min-height:calc(100svh - 76px);display:grid;align-items:center;background:var(--lime);color:#141412}
+.atext{position:relative;z-index:2;padding:clamp(32px,6vw,72px) clamp(16px,5vw,72px);max-width:760px;pointer-events:none}
+.atext h1{font-size:clamp(2.4rem,7vw,5.6rem);line-height:.98;letter-spacing:-.03em}
+.atext h1 em{display:inline-block;background:#141412;color:var(--lime);padding:0 .22em;border-radius:.2em;min-width:2ch;transition:opacity .25s,transform .25s}
+.atext h1 em.out{opacity:0;transform:translateY(.3em)}
+.atext p{margin-top:22px;max-width:34rem;line-height:1.6;font-size:clamp(1rem,1.7vw,1.2rem)}
+.shape{position:absolute;will-change:transform;transition:transform .25s ease-out}
+.s1{right:12%;top:18%;width:clamp(120px,20vw,260px);height:clamp(120px,20vw,260px);background:#141412;border-radius:28%}
+.s1 img{width:70%;margin:15% 0 0 15%;display:block}
+.s2{right:28%;bottom:12%;width:clamp(60px,10vw,130px);height:clamp(60px,10vw,130px);border-radius:50%;background:#fff;opacity:.9}
+.s3{right:4%;bottom:22%;width:clamp(80px,13vw,170px);height:clamp(80px,13vw,170px);border-radius:50%;border:6px solid #141412}
+.s4{right:36%;top:10%;width:clamp(30px,5vw,60px);height:clamp(30px,5vw,60px);background:#141412;border-radius:12px;transform:rotate(20deg)}
+@media(max-width:720px){.s1{right:6%;top:8%;opacity:.9}.s2{right:50%}.s4{right:58%}.atext{padding-top:clamp(150px,40vw,260px)}}
+
+/* ---------- ticker ---------- */
+.tick{background:#141412;color:var(--lime);overflow:hidden;white-space:nowrap;padding:18px 0}
+.tick div{display:inline-block;animation:tk 22s linear infinite;font:800 clamp(1.2rem,3vw,2rem) Manrope,sans-serif}
+.tick:hover div{animation-play-state:paused}
+.tick span{margin:0 1.2em}.tick i{font-style:normal;color:#fff}
+@keyframes tk{to{transform:translateX(-50%)}}
+
+/* ---------- story track (drag / swipe) ---------- */
+.track{display:flex;gap:18px;overflow-x:auto;scroll-snap-type:x mandatory;margin-top:40px;padding-bottom:16px;cursor:grab;scrollbar-width:thin;scrollbar-color:var(--lime) transparent}
+.track.drag{cursor:grabbing;scroll-snap-type:none}
+.chap{flex:0 0 min(340px,80vw);scroll-snap-align:start;background:var(--soft);border-radius:28px;padding:30px;min-height:260px;user-select:none;transition:background .3s,color .3s}
+.chap:hover{background:#141412;color:#fff}
+.chap b{font:400 3.4rem "DM Serif Display",Georgia,serif;color:var(--lime);line-height:1}
+.chap h3{font-size:1.5rem;margin:12px 0 8px}
+.chap p{opacity:.8;line-height:1.55}
+.arrows{display:flex;gap:10px;margin-top:10px}
+.arrows button{width:46px;height:46px;border-radius:50%;border:0;background:var(--lime);color:#141412;font-size:1.2rem;cursor:pointer}
+
+/* ---------- lab tabs ---------- */
+.tabs{display:flex;flex-wrap:wrap;gap:10px;margin:34px 0 20px}
+.tabs button{font:800 1rem Manrope,sans-serif;border:2px solid var(--ink);background:transparent;color:var(--ink);border-radius:999px;padding:.65rem 1.3rem;cursor:pointer;transition:.2s}
+.tabs button[aria-selected="true"]{background:var(--lime);border-color:var(--lime);color:#141412}
+.panel{background:#141412;color:#fff;border-radius:32px;padding:clamp(24px,5vw,56px);min-height:220px;animation:fi .5s}
+.panel h3{font-size:clamp(1.5rem,3.4vw,2.4rem);color:var(--lime);margin-bottom:10px}
+.panel p{max-width:44rem;line-height:1.65;color:#d6d6cf}
+@keyframes fi{from{opacity:0;transform:translateY(12px)}}
+
+/* ---------- team flip cards ---------- */
+.team{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:20px;margin-top:40px}
+.tm{perspective:1000px;height:300px;cursor:pointer;outline:none}
+.tm-in{position:relative;width:100%;height:100%;transition:transform .7s cubic-bezier(.4,.2,.2,1);transform-style:preserve-3d}
+.tf{position:absolute;inset:0;border-radius:28px;backface-visibility:hidden;-webkit-backface-visibility:hidden;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;padding:24px;text-align:center}
+.tf.a{background:var(--soft)}
+.tf.b{background:var(--lime);color:#141412;transform:rotateY(180deg)}
+.av{width:110px;height:110px;border-radius:50%;background:#141412;color:var(--lime);display:grid;place-items:center;font:400 2.6rem "DM Serif Display",Georgia,serif}
+.tf h3{font-size:1.2rem}.tf small{color:var(--mute)}.tf.b small{color:#141412;opacity:.75}
+@media(hover:hover){.tm:hover .tm-in{transform:rotateY(180deg)}}
+.tm:focus-within .tm-in,.tm.is-flipped .tm-in{transform:rotateY(180deg)}
+
+/* ---------- CTA ---------- */
+.cta{background:#141412;color:#fff;border-radius:36px;padding:clamp(32px,7vw,80px);margin:0 clamp(12px,4vw,56px) clamp(40px,8vw,90px);text-align:center}
+.cta h2{margin:0 auto 24px;max-width:18ch}.cta em{color:var(--lime)}
+.cta a{display:inline-block;background:var(--lime);color:#141412;text-decoration:none;font:800 1rem Manrope,sans-serif;padding:.95rem 1.8rem;border-radius:999px;transition:transform .2s}
+.cta a:hover{transform:scale(1.06)}
+@media(prefers-reduced-motion:reduce){.tick div{animation:none}.tm-in,.shape{transition-duration:.01s}}

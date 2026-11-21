@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Our Vision — FabLab</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Inter:wght@400;500&family=Manrope:wght@700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/CSS/style.css">
+<link rel="stylesheet" href="/CSS/vision.css">
+</head>
+<body>
+
+<!-- HEADER -->
+<header>
+  <a class="logo" href="/html/index.html"><img alt="FabLab logo" src="/PNG/logo-icon.png"><span>FAB LAB</span></a>
+  <nav>
+    <a href="/html/index.html">Home</a>
+    <a href="/html/Vision.html" aria-current="page">Our Vision</a>
+    <a href="/html/about.html">About Us</a>
+    <a href="/html/Contactus.html">Contact Us</a>
+    <button id="thm" aria-label="Toggle theme">◐</button>
+  </nav>
+</header>
+
+<!-- HERO: particle network follows mouse / finger, click or tap to burst -->
+<section class="vhero" id="vhero">
+  <canvas id="vc" aria-hidden="true"></canvas>
+  <div class="vtext">
+    <div class="k">Our Vision</div>
+    <h1>We turn ideas into things that are <em>real.</em></h1>
+    <p>Creative minds, smart solutions and real results: one place where design, technology and business grow together.</p>
+  </div>
+  <div class="vhint">Move, drag or tap</div>
+</section>
+
+<!-- JOURNEY: line fills as you scroll -->
+<section class="sec">
+  <div class="k">How we work</div>
+  <h2>From a spark to a <em>result</em> you can hold.</h2>
+  <div class="journey" id="journey">
+    <div class="rail"><i id="fill"></i></div>
+    <div class="step"><b>01</b><h3>Imagine</h3><p>We listen first. Your goals, your customers and your idea become a clear plan.</p></div>
+    <div class="step"><b>02</b><h3>Design</h3><p>Brand, interface and product take shape as sketches, models and prototypes you can react to.</p></div>
+    <div class="step"><b>03</b><h3>Build</h3><p>Our lab turns designs into working websites, electronics and physical products.</p></div>
+    <div class="step"><b>04</b><h3>Grow</h3><p>We launch, measure and improve with marketing that brings your work to the people who need it.</p></div>
+  </div>
+</section>
+
+<!-- PILLARS: tilt toward your pointer -->
+<section class="sec">
+  <div class="k">What we believe</div>
+  <h2>Three ideas behind everything we make.</h2>
+  <div class="pillars">
+    <div class="tilt"><span>C</span><h3>Creative Minds</h3><p>Fresh thinking from people who love making. Every project starts with curiosity.</p></div>
+    <div class="tilt"><span>S</span><h3>Smart Solutions</h3><p>The right tool for the job, from code to circuits to 3D printers, kept simple and useful.</p></div>
+    <div class="tilt"><span>R</span><h3>Real Results</h3><p>We measure success by what changes for your business, not by how it looks on a slide.</p></div>
+  </div>
+</section>
+
+<!-- VISION BUILDER -->
+<section class="builder">
+  <div class="k">Try it</div>
+  <h2>Build your vision in three taps.</h2>
+  <div class="chips" id="chips">
+    <button aria-pressed="false">Brand &amp; Design</button>
+    <button aria-pressed="false">Website</button>
+    <button aria-pressed="false">Marketing</button>
+    <button aria-pressed="false">Portfolio</button>
+    <button aria-pressed="false">Video Editing</button>
+    <button aria-pressed="false">System development</button>
+  </div>
+  <p id="out">Pick what you want to create…</p>
+  <a class="go" href="/html/Contactus.html">Start this project →</a>
+</section>
+
+<script src="/script.js"></script>
+<script src="/vision.js"></script>
+</body>
+</html>

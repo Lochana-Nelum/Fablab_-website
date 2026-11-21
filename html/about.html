@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>About Us — FabLab</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Inter:wght@400;500&family=Manrope:wght@700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/CSS/style.css">
+<link rel="stylesheet" href="/CSS/about.css">
+</head>
+<body>
+
+<!-- HEADER -->
+<header>
+  <a class="logo" href="/html/index.html"><img alt="FabLab logo" src="/PNG/logo-icon.png"><span>FAB LAB</span></a>
+  <nav>
+    <a href="/html/index.html">Home</a>
+    <a href="/html/Vision.html">Our Vision</a>
+    <a href="/html/about.html" aria-current="page">About Us</a>
+    <a href="/html/Contactus.html">Contact Us</a>
+    <button id="thm" aria-label="Toggle theme">◐</button>
+  </nav>
+</header>
+
+<!-- HERO: shapes drift toward your mouse / finger, word keeps changing -->
+<section class="ahero" id="ahero">
+  <div class="atext">
+    <div class="k">About Us</div>
+    <h1>We are <em id="word">makers</em> who build what others imagine.</h1>
+    <p>FabLab is a creative workspace for marketing, web development and digital fabrication, where ideas become real products.</p>
+  </div>
+  <div class="shape s1" data-d="40"><img src="/PNG/logo-icon.png" alt=""></div>
+  <div class="shape s2" data-d="-25"></div>
+  <div class="shape s3" data-d="25"></div>
+  <div class="shape s4" data-d="-55"></div>
+</section>
+
+<!-- TICKER -->
+<div class="tick" aria-hidden="true"><div>
+  <span>Creative Minds <i>●</i></span><span>Smart Solutions <i>●</i></span><span>Real Results <i>●</i></span>
+  <span>Creative Minds <i>●</i></span><span>Smart Solutions <i>●</i></span><span>Real Results <i>●</i></span>
+  <span>Creative Minds <i>●</i></span><span>Smart Solutions <i>●</i></span><span>Real Results <i>●</i></span>
+  <span>Creative Minds <i>●</i></span><span>Smart Solutions <i>●</i></span><span>Real Results <i>●</i></span>
+</div></div>
+
+<!-- STORY: drag or swipe sideways -->
+<section class="sec">
+  <div class="k">Our story</div>
+  <h2>How FabLab <em>came to be.</em></h2>
+  <div class="track" id="track">
+    <div class="chap"><b>01</b><h3>The spark</h3><p>It started with a simple idea: everyone should be able to turn an idea into something real.</p></div>
+    <div class="chap"><b>02</b><h3>The first prototype</h3><p>Our first machines, our first projects, and a lot of learning by making.</p></div>
+    <div class="chap"><b>03</b><h3>The team grows</h3><p>Designers, developers and marketers joined, so one team could take a project from sketch to launch.</p></div>
+    <div class="chap"><b>04</b><h3>Today &amp; beyond</h3><p>We help businesses and makers grow with creative work that delivers real results.</p></div>
+  </div>
+  <div class="arrows"><button id="prev" aria-label="Previous">←</button><button id="next" aria-label="Next">→</button></div>
+</section>
+
+<!-- WHAT WE DO: tabs -->
+<section class="sec">
+  <div class="k">Inside the lab</div>
+  <h2>Everything under <em>one roof.</em></h2>
+  <div class="tabs" role="tablist" id="tabs">
+    <button role="tab" aria-selected="true" data-i="0">Design &amp; Marketing</button>
+    <button role="tab" aria-selected="false" data-i="1">Web Development</button>
+    <button role="tab" aria-selected="false" data-i="2">Graphic Designing</button>
+    <button role="tab" aria-selected="false" data-i="3">System Development</button>
+    <button role="tab" aria-selected="false" data-i="4">product Videography</button>
+  </div>
+  <div class="panel" id="panel" role="tabpanel"><h3>Design &amp; Marketing</h3><p>Brand identity, graphics and digital campaigns that make your business easy to notice and hard to forget.</p></div>
+</section>
+
+<!-- TEAM: flip on hover / tap -->
+<section class="sec">
+  <div class="k">The people</div>
+  <h2>Meet the <em>makers.</em></h2>
+  <div class="team">
+    <div class="tm" tabindex="0"><div class="tm-in">
+      <div class="tf a"><div class="av">A</div><h3>Team Member</h3><small>Founder</small></div>
+      <div class="tf b"><h3>Founder</h3><small>Add a short line about this person here.</small></div></div></div>
+    <div class="tm" tabindex="0"><div class="tm-in">
+      <div class="tf a"><div class="av">B</div><h3>Team Member</h3><small>Creative Lead</small></div>
+      <div class="tf b"><h3>Creative Lead</h3><small>Add a short line about this person here.</small></div></div></div>
+    <div class="tm" tabindex="0"><div class="tm-in">
+      <div class="tf a"><div class="av">C</div><h3>Team Member</h3><small>Engineer</small></div>
+      <div class="tf b"><h3>Engineer</h3><small>Add a short line about this person here.</small></div></div></div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta">
+  <h2>Have an idea? Let’s make it <em>real.</em></h2>
+  <a href="/html/Contactus.html">Contact Us →</a>
+</section>
+
+<script src="/script.js"></script>
+<script src="/about.js"></script>
+</body>
+</html>

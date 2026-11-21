@@ -1,0 +1,46 @@
+/* FabLab — Contact page (loads after style.css) */
+nav a[aria-current="page"]{text-decoration:underline;text-underline-offset:6px}
+.ic{width:1.5em;height:1.5em;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;flex:none}
+.wrap{max-width:1100px;margin:0 auto;padding:clamp(28px,5vw,56px) clamp(16px,4vw,32px) clamp(40px,6vw,72px);text-align:center}
+.pill{display:inline-block;background:var(--lime);color:#141412;font-family:Manrope,sans-serif;font-weight:800;border-radius:999px;padding:.7rem 2.2rem;font-size:1.15rem}
+.wrap h1{font-size:clamp(1.5rem,3.4vw,2.3rem);margin:28px auto 36px;max-width:26ch}
+
+/* ---------- flip cards ---------- */
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:20px;margin-bottom:44px}
+.flip{perspective:1000px;height:170px;outline:none;cursor:pointer}
+.flip-in{position:relative;width:100%;height:100%;transition:transform .7s cubic-bezier(.4,.2,.2,1);transform-style:preserve-3d}
+.face{position:absolute;inset:0;border-radius:28px;backface-visibility:hidden;-webkit-backface-visibility:hidden;display:flex;align-items:center;justify-content:center;gap:14px;padding:20px;border:1px solid rgba(197,247,43,.25)}
+.front{background:#12170a;color:#fff;font-family:"DM Serif Display",Georgia,serif;font-size:1.05rem;line-height:1.35;text-align:left}
+.front .ic{color:#fff;width:2rem;height:2rem}
+.back{background:var(--lime);color:#141412;transform:rotateY(180deg);flex-direction:column;text-align:center}
+.back b{font-family:Manrope,sans-serif;font-size:1.1rem}
+.back small{opacity:.75;font-size:.82rem}
+.back a{background:#141412;color:#fff;text-decoration:none;font-family:Manrope,sans-serif;font-weight:800;font-size:.9rem;padding:.55rem 1.1rem;border-radius:999px;margin:2px}
+.back a:hover{background:#2c3414}
+.acts{display:flex;flex-wrap:wrap;justify-content:center;gap:4px}
+/* desktop: flip on mouse hover. touch: JS adds .is-flipped on tap. keyboard: focus */
+@media(hover:hover){.flip:hover .flip-in{transform:rotateY(180deg)}}
+.flip:focus-within .flip-in,.flip.is-flipped .flip-in{transform:rotateY(180deg)}
+@media(prefers-reduced-motion:reduce){.flip-in{transition-duration:.01s}}
+
+/* ---------- connect + form ---------- */
+.pill.s{margin-bottom:26px}
+.connect{display:grid;grid-template-columns:minmax(220px,1fr) 1.9fr;gap:22px;text-align:left}
+.links{display:flex;flex-direction:column;gap:14px}
+.links a{display:flex;align-items:center;gap:16px;background:#9fca12;color:#141412;text-decoration:none;font-family:Manrope,sans-serif;font-weight:800;border-radius:14px;padding:14px 18px;transition:transform .2s,background .2s}
+.links a:hover{background:var(--lime);transform:translateX(6px)}
+.links .ic{width:2rem;height:2rem}
+form{background:#9fca12;color:#141412;border-radius:18px;padding:26px;display:grid;grid-template-columns:1fr 1fr;gap:16px 20px}
+form h3{grid-column:1/-1;text-align:center;font-size:1.15rem}
+label{display:flex;flex-direction:column;gap:6px;font-family:Manrope,sans-serif;font-weight:800;font-size:.8rem;text-align:center}
+.full{grid-column:1/-1}
+input,select,textarea{font:500 .9rem Inter,sans-serif;border:2px solid transparent;border-radius:12px;padding:11px 14px;background:#fafafa;color:#141412;width:100%}
+textarea{min-height:110px;resize:vertical;font-family:"DM Serif Display",Georgia,serif}
+input:focus,select:focus,textarea:focus{outline:none;border-color:#141412}
+.send{grid-column:1/-1;justify-self:center;display:flex;align-items:center;gap:10px;border:0;cursor:pointer;background:var(--lime);color:#141412;font:400 1.3rem "DM Serif Display",Georgia,serif;border-radius:999px;padding:.55rem 1.8rem;transition:transform .2s}
+.send:hover{transform:scale(1.06)}
+#status{grid-column:1/-1;text-align:center;font-weight:700;min-height:1.2em}
+.touch{margin-top:48px}
+.touch h2{font-size:clamp(1.7rem,4vw,2.4rem)}
+.touch p{font-family:"DM Serif Display",Georgia,serif;margin-top:6px;color:var(--mute)}
+@media(max-width:780px){.connect{grid-template-columns:1fr}form{grid-template-columns:1fr}}
