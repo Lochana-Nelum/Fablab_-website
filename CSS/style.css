@@ -45,12 +45,16 @@ nav{margin-left:auto}
 .hctl{display:flex;gap:10px;margin-left:clamp(14px,3vw,40px)}
 .menu-btn{display:none;background:#141412;color:var(--lime)}
 nav a[aria-current="page"]{text-decoration:underline;text-underline-offset:6px}
+.tabbar{display:none}
 @media(max-width:720px){
- .menu-btn{display:block}
+ header nav,.menu-btn{display:none}
  .hctl{margin-left:auto}
  .logo span{font-size:1.1rem}
- header nav{position:absolute;left:0;right:0;top:100%;margin:0;flex-direction:column;align-items:stretch;gap:0;background:var(--lime);
-  padding:0 clamp(16px,5vw,72px);max-height:0;overflow:hidden;visibility:hidden;transition:max-height .35s ease,visibility .35s;box-shadow:0 16px 30px rgba(0,0,0,.18)}
- header nav.open{max-height:340px;visibility:visible}
- header nav a{display:block;padding:15px 4px;font-size:1.15rem;border-bottom:1px solid rgba(20,20,18,.14)}
+ /* bottom tab bar: always visible on phones */
+ .tabbar{display:flex;position:fixed;left:0;right:0;bottom:0;z-index:30;gap:6px;background:var(--lime);padding:6px 8px calc(6px + env(safe-area-inset-bottom,0px));box-shadow:0 -6px 24px rgba(0,0,0,.18)}
+ .tabbar a{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;min-height:56px;padding:6px 2px;border-radius:16px;color:#141412;text-decoration:none;font:800 .74rem Manrope,system-ui,sans-serif;transition:background .2s,color .2s}
+ .tabbar svg{width:24px;height:24px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+ .tabbar a[aria-current="page"]{background:#141412;color:var(--lime)}
+ body{padding-bottom:calc(68px + env(safe-area-inset-bottom,0px))}
+ .hero{height:calc(100svh - 144px - env(safe-area-inset-bottom,0px));min-height:430px}
 }
