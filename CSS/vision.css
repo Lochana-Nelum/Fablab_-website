@@ -49,3 +49,5 @@ nav a[aria-current="page"]{text-decoration:underline;text-underline-offset:6px}
 .go:hover{transform:scale(1.05)}
 
 @media(prefers-reduced-motion:reduce){.step,.tilt{transition-duration:.01s}}
+
+@media(max-width:720px){.vhero{height:calc(100svh - 144px - env(safe-area-inset-bottom,0px));min-height:440px}}

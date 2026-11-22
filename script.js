@@ -1,6 +1,37 @@
 /* FabLab — shared UI: theme (remembered on every page) + mobile menu */
 (function(){
   var KEY='fablab-theme',root=document.documentElement;
+  /* Self-healing: if a page's HTML is older than this script, add the missing phone tab bar and
+     move the theme button out of the (hidden-on-phones) menu, so navigation is never lost. */
+  (function(){
+    var nav=document.getElementById('nav')||document.querySelector('header nav');
+    if(!nav)return;
+    var hctl=document.querySelector('.hctl');
+    if(!hctl){hctl=document.createElement('div');hctl.className='hctl';nav.parentNode.insertBefore(hctl,nav.nextSibling)}
+    var t=document.getElementById('thm');if(t&&t.parentNode!==hctl)hctl.appendChild(t);
+    if(document.querySelector('.tabbar'))return;
+    var ICON=[
+      '<path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/>',
+      '<path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/>',
+      '<path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/>',
+      '<path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/>'];
+    var LABEL=['Home','Vision','About','Contact'],links=nav.querySelectorAll('a'),bar=document.createElement('div'),cur=-1,i;
+    bar.className='tabbar';bar.setAttribute('role','navigation');bar.setAttribute('aria-label','Main');
+    for(i=0;i<links.length;i++){
+      if(links[i].getAttribute('aria-current')==='page')cur=i;
+      else if(cur<0&&links[i].pathname===location.pathname)cur=i;
+    }
+    if(cur<0&&document.getElementById('home'))cur=0;
+    for(i=0;i<links.length&&i<4;i++){
+      var a=document.createElement('a');a.href=links[i].getAttribute('href');
+      if(i===cur)a.setAttribute('aria-current','page');
+      a.innerHTML='<svg viewBox="0 0 24 24" aria-hidden="true">'+ICON[i]+'</svg><span>'+LABEL[i]+'</span>';
+      bar.appendChild(a);
+    }
+    document.body.appendChild(bar);
+  })();
+
+
   function saved(){try{return localStorage.getItem(KEY)}catch(e){return null}}
   function sys(){return matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light'}
   function apply(t){

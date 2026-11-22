@@ -25,9 +25,9 @@ document.getElementById('next').onclick=function(){by(1)};
 var data=[
  ['Design & Marketing','Brand identity, graphics and digital campaigns that make your business easy to notice and hard to forget.'],
  ['Web Development','Fast, modern websites and web apps built around your customers and your goals.'],
- ['Graphic Designing','Rapid prototypes and finished parts, from a first concept model to small production runs.'],
- ['System Development','Precise cutting and engraving in wood, acrylic and more for signage, models and products.'],
- ['Product Videography','Circuits, sensors and embedded systems that make your product smart.']];
+ ['Graphic Designing','Logos, brand identity, social media posts and print designs that make your business stand out.'],
+ ['System Development','Custom software and web systems built around how your business actually works.'],
+ ['Product Videography','Clean, cinematic product videos and reels that show off what you make.']];
 var tabs=document.querySelectorAll('#tabs button'),panel=document.getElementById('panel');
 tabs.forEach(function(b){b.addEventListener('click',function(){
   tabs.forEach(function(x){x.setAttribute('aria-selected','false')});b.setAttribute('aria-selected','true');

@@ -18,7 +18,14 @@ em{color:inherit}
 .s2{right:28%;bottom:12%;width:clamp(60px,10vw,130px);height:clamp(60px,10vw,130px);border-radius:50%;background:#fff;opacity:.9}
 .s3{right:4%;bottom:22%;width:clamp(80px,13vw,170px);height:clamp(80px,13vw,170px);border-radius:50%;border:6px solid #141412}
 .s4{right:36%;top:10%;width:clamp(30px,5vw,60px);height:clamp(30px,5vw,60px);background:#141412;border-radius:12px;transform:rotate(20deg)}
-@media(max-width:720px){.s1{right:6%;top:8%;opacity:.9}.s2{right:50%}.s4{right:58%}.atext{padding-top:clamp(150px,40vw,260px)}}
+/* phones: all shapes sit in a band at the top so they never cover the text */
+@media(max-width:720px){
+ .s1{right:6%;top:24px}
+ .s2{left:30%;right:auto;top:70px;bottom:auto}
+ .s3{left:6%;right:auto;top:28px;bottom:auto}
+ .s4{left:48%;right:auto;top:26px}
+ .atext{padding-top:clamp(170px,48vw,260px)}
+}
 
 /* ---------- ticker ---------- */
 .tick{background:#141412;color:var(--lime);overflow:hidden;white-space:nowrap;padding:18px 0}
@@ -65,3 +72,5 @@ em{color:inherit}
 .cta a{display:inline-block;background:var(--lime);color:#141412;text-decoration:none;font:800 1rem Manrope,sans-serif;padding:.95rem 1.8rem;border-radius:999px;transition:transform .2s}
 .cta a:hover{transform:scale(1.06)}
 @media(prefers-reduced-motion:reduce){.tick div{animation:none}.tm-in,.shape{transition-duration:.01s}}
+
+@media(max-width:720px){.ahero{min-height:calc(100svh - 144px - env(safe-area-inset-bottom,0px))}}

@@ -44,3 +44,5 @@ input:focus,select:focus,textarea:focus{outline:none;border-color:#141412}
 .touch h2{font-size:clamp(1.7rem,4vw,2.4rem)}
 .touch p{font-family:"DM Serif Display",Georgia,serif;margin-top:6px;color:var(--mute)}
 @media(max-width:780px){.connect{grid-template-columns:1fr}form{grid-template-columns:1fr}}
+
+@media(max-width:780px){input,select,textarea{font-size:16px}.flip{height:150px}}
