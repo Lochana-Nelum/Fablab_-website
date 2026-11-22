@@ -1,8 +1,39 @@
+/* FabLab — shared UI: theme (remembered on every page) + mobile menu */
+(function(){
+  var KEY='fablab-theme',root=document.documentElement;
+  function saved(){try{return localStorage.getItem(KEY)}catch(e){return null}}
+  function sys(){return matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light'}
+  function apply(t){
+    root.setAttribute('data-theme',t);
+    var b=document.getElementById('thm');
+    if(b){b.textContent=t==='dark'?'☀':'☾';b.setAttribute('aria-label',t==='dark'?'Switch to light theme':'Switch to dark theme')}
+  }
+  apply(saved()||sys());
+  var thm=document.getElementById('thm');
+  if(thm)thm.addEventListener('click',function(){
+    var next=root.getAttribute('data-theme')==='dark'?'light':'dark';
+    try{localStorage.setItem(KEY,next)}catch(e){}
+    apply(next);
+  });
+  addEventListener('storage',function(e){if(e.key===KEY&&e.newValue)apply(e.newValue)});   // other open tabs follow
+  addEventListener('pageshow',function(){apply(saved()||sys())});                          // back/forward button
+
+  var menu=document.getElementById('menu'),nav=document.getElementById('nav');
+  function close(){if(!nav)return;nav.classList.remove('open');menu.setAttribute('aria-expanded','false');menu.textContent='☰';menu.setAttribute('aria-label','Open menu')}
+  if(menu&&nav){
+    menu.addEventListener('click',function(){
+      var open=nav.classList.toggle('open');
+      menu.setAttribute('aria-expanded',open);menu.textContent=open?'✕':'☰';menu.setAttribute('aria-label',open?'Close menu':'Open menu');
+    });
+    nav.addEventListener('click',function(e){if(e.target.closest('a'))close()});
+    addEventListener('keydown',function(e){if(e.key==='Escape')close()});
+    addEventListener('resize',function(){if(innerWidth>720)close()});
+  }
+})();
+
 /* FabLab — interactive 3D robot (needs three.js r128, loaded in index.html) */
 (function(){
 var cv=document.getElementById('c'),hero=document.getElementById('home');
-var dark=matchMedia('(prefers-color-scheme: dark)').matches;
-document.getElementById('thm').onclick=function(){dark=!dark;document.documentElement.setAttribute('data-theme',dark?'dark':'light')};
 if(!cv||!hero)return; // pages without the robot hero only need the theme button
 
 var ren=new THREE.WebGLRenderer({canvas:cv,antialias:true,alpha:true});ren.setPixelRatio(Math.min(devicePixelRatio||1,2));

@@ -1,6 +1,8 @@
 /* FabLab — header + hero styles */
 :root{color-scheme:light;--lime:#c5f72b;--ink:#141412;--bg:#fff;--soft:#f3f3f0;--mute:#5d5d57;--word:#e9e9e5;box-sizing:border-box;scroll-behavior:smooth}
-@media(prefers-color-scheme:dark){:root:not([data-theme="light"]){color-scheme:dark;--bg:#111110;--soft:#1b1b19;--mute:#a4a49c;--word:#222220;--ink:#f4f4ee}}
+/* dark theme: set by the toggle (data-theme) and remembered in localStorage; falls back to the device setting */
+:root[data-theme="dark"]{color-scheme:dark;--bg:#111110;--soft:#1b1b19;--mute:#a4a49c;--word:#222220;--ink:#f4f4ee}
+@media(prefers-color-scheme:dark){:root:not([data-theme]){color-scheme:dark;--bg:#111110;--soft:#1b1b19;--mute:#a4a49c;--word:#222220;--ink:#f4f4ee}}
 
 *{box-sizing:border-box;margin:0}
 body{background:var(--bg);color:var(--ink);font-family:Inter,system-ui,sans-serif;transition:background .4s}
@@ -12,20 +14,12 @@ header{position:sticky;top:0;z-index:20;background:var(--lime);color:#141412;dis
 .logo{display:flex;align-items:center;gap:12px;color:#141412;text-decoration:none;font-size:1.3rem;letter-spacing:.02em}
 .logo img{width:56px;height:52px;border-radius:14px;background:#141412;display:block}
 
-.logo img {
-    width: 56px;
-    height: 52px;
-    border-radius: 14px;
-    background: #141412;
-    display: block;
-}
-
 nav{display:flex;gap:clamp(14px,3vw,40px);align-items:center}
 nav a{color:#141412;text-decoration:none;font-size:1rem}
 nav a:hover{text-decoration:underline;text-underline-offset:6px}
-#thm{border:0;width:40px;height:40px;border-radius:50%;background:#141412;color:var(--lime);font-size:1.1rem;cursor:pointer}
+#thm,.menu-btn{border:0;width:44px;height:44px;border-radius:50%;background:#141412;color:var(--lime);font-size:1.15rem;cursor:pointer}
 
-@media(max-width:720px){nav a{display:none}.logo span{font-size:1.1rem}}
+
 .hero{position:relative;height:calc(100vh - 76px);height:calc(100svh - 76px);min-height:560px;overflow:hidden}
 .word{position:absolute;left:0;right:0;top:44%;transform:translateY(-50%);text-align:center;font-family:Manrope,sans-serif;font-weight:800;font-size:clamp(5rem,22vw,20rem);letter-spacing:-.04em;line-height:1;color:var(--word);user-select:none}
 .word b{color:var(--lime)}
@@ -41,4 +35,22 @@ h1{font-color:var(--lime)}
 .btn.l{background:var(--lime);color:#141412}
 .hint{font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--mute)}
 
-@media(max-width:640px){.side .hint{display:none}.copy{bottom:84px}}
+@media(max-width:640px){.side .hint{display:none}.copy{top:clamp(16px,3vh,30px);bottom:auto}}
+
+/* ---------- phones & tablets ---------- */
+html{-webkit-text-size-adjust:100%;text-size-adjust:100%}
+body{overflow-x:hidden;-webkit-tap-highlight-color:transparent}
+img{max-width:100%}
+nav{margin-left:auto}
+.hctl{display:flex;gap:10px;margin-left:clamp(14px,3vw,40px)}
+.menu-btn{display:none;background:#141412;color:var(--lime)}
+nav a[aria-current="page"]{text-decoration:underline;text-underline-offset:6px}
+@media(max-width:720px){
+ .menu-btn{display:block}
+ .hctl{margin-left:auto}
+ .logo span{font-size:1.1rem}
+ header nav{position:absolute;left:0;right:0;top:100%;margin:0;flex-direction:column;align-items:stretch;gap:0;background:var(--lime);
+  padding:0 clamp(16px,5vw,72px);max-height:0;overflow:hidden;visibility:hidden;transition:max-height .35s ease,visibility .35s;box-shadow:0 16px 30px rgba(0,0,0,.18)}
+ header nav.open{max-height:340px;visibility:visible}
+ header nav a{display:block;padding:15px 4px;font-size:1.15rem;border-bottom:1px solid rgba(20,20,18,.14)}
+}
